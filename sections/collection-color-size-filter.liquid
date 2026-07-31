@@ -1,0 +1,180 @@
+{% style %}
+  .cs-filter-crumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 20px var(--page-margin-desktop, 40px);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  @media only screen and (max-width: 749px) {
+    .cs-filter-crumb {
+      padding: 16px var(--page-margin-mobile, 20px);
+      font-size: 11px;
+    }
+  }
+  .cs-filter-crumb__sep {
+    opacity: 0.4;
+  }
+  .cs-filter-crumb a.cs-filter-crumb__item,
+  .cs-filter-crumb span.cs-filter-crumb__item {
+    color: #1A1A1A;
+    text-decoration: none;
+  }
+  .cs-filter-crumb__item--muted {
+    color: #999999;
+  }
+  .cs-filter-crumb__item--current {
+    color: #000000;
+    font-weight: 600;
+  }
+  .cs-filter-crumb__group {
+    position: relative;
+    cursor: pointer;
+  }
+  .cs-filter-crumb__panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 14px;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.1);
+    min-width: 180px;
+    padding: 8px 0;
+    z-index: 30;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  }
+  .cs-filter-crumb__group:hover .cs-filter-crumb__panel,
+  .cs-filter-crumb__group.is-open .cs-filter-crumb__panel {
+    display: block;
+  }
+  .cs-filter-crumb__panel a {
+    display: block;
+    padding: 8px 18px;
+    color: #1A1A1A;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .cs-filter-crumb__panel a:hover {
+    background: #FAFAFA;
+  }
+  .cs-filter-crumb__panel a.is-active {
+    font-weight: 600;
+  }
+  .cs-filter-crumb__count {
+    opacity: 0.5;
+    font-size: 10px;
+  }
+{% endstyle %}
+
+{% liquid
+  assign color_filter = null
+  assign size_filter = null
+  for block_filter in collection.filters
+    assign lbl = block_filter.label | downcase
+    assign is_color_label = false
+    if lbl contains 'coul' or lbl contains 'color'
+      assign is_color_label = true
+    endif
+    assign is_size_label = false
+    if lbl contains 'taille' or lbl contains 'size'
+      assign is_size_label = true
+    endif
+    if color_filter == null and block_filter.type == 'list' and is_color_label
+      assign color_filter = block_filter
+    endif
+    if size_filter == null and block_filter.type == 'list' and is_size_label
+      assign size_filter = block_filter
+    endif
+  endfor
+
+  assign active_filter = null
+  assign active_value = null
+  if color_filter and color_filter.active_values.size > 0
+    assign active_filter = color_filter
+    assign active_value = color_filter.active_values.first
+  elsif size_filter and size_filter.active_values.size > 0
+    assign active_filter = size_filter
+    assign active_value = size_filter.active_values.first
+  endif
+%}
+
+{% if color_filter or size_filter %}
+<nav class="cs-filter-crumb section-{{ section.id }}" aria-label="Filtres">
+  {% if active_filter %}
+    <a href="{{ collection.url }}" class="cs-filter-crumb__item cs-filter-crumb__item--muted">CATALOGUE</a>
+    <span class="cs-filter-crumb__sep">/</span>
+    <span class="cs-filter-crumb__group cs-filter-crumb__item cs-filter-crumb__item--muted" tabindex="0">
+      {{ active_filter.label | upcase }}
+      <div class="cs-filter-crumb__panel">
+        {% for value in active_filter.values %}
+          <a href="{{ value.url_to_add }}" class="{% if value.active %}is-active{% endif %}">
+            {{ value.label }}
+            {% if value.count %}<span class="cs-filter-crumb__count">({{ value.count }})</span>{% endif %}
+          </a>
+        {% endfor %}
+      </div>
+    </span>
+    <span class="cs-filter-crumb__sep">/</span>
+    <a href="{{ active_value.url_to_remove }}" class="cs-filter-crumb__item cs-filter-crumb__item--current">{{ active_value.label | upcase }}</a>
+  {% else %}
+    {% if color_filter %}
+      <span class="cs-filter-crumb__group cs-filter-crumb__item" tabindex="0">
+        {{ color_filter.label | upcase }}
+        <div class="cs-filter-crumb__panel">
+          {% for value in color_filter.values %}
+            <a href="{{ value.url_to_add }}">
+              {{ value.label }}
+              {% if value.count %}<span class="cs-filter-crumb__count">({{ value.count }})</span>{% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </span>
+    {% endif %}
+    {% if color_filter and size_filter %}<span class="cs-filter-crumb__sep">/</span>{% endif %}
+    {% if size_filter %}
+      <span class="cs-filter-crumb__group cs-filter-crumb__item" tabindex="0">
+        {{ size_filter.label | upcase }}
+        <div class="cs-filter-crumb__panel">
+          {% for value in size_filter.values %}
+            <a href="{{ value.url_to_add }}">
+              {{ value.label }}
+              {% if value.count %}<span class="cs-filter-crumb__count">({{ value.count }})</span>{% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </span>
+    {% endif %}
+  {% endif %}
+</nav>
+
+<script>
+  (function () {
+    document.querySelectorAll('.section-{{ section.id }} .cs-filter-crumb__group').forEach(function (group) {
+      group.addEventListener('click', function (e) {
+        if (e.target.closest('.cs-filter-crumb__panel')) return;
+        group.classList.toggle('is-open');
+      });
+    });
+    document.addEventListener('click', function (e) {
+      document.querySelectorAll('.section-{{ section.id }} .cs-filter-crumb__group.is-open').forEach(function (group) {
+        if (!group.contains(e.target)) group.classList.remove('is-open');
+      });
+    });
+  })();
+</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Filtre Couleur/Taille",
+  "settings": []
+}
+{% endschema %}

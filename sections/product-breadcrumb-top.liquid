@@ -1,0 +1,48 @@
+{% style %}
+  .pb-top {
+    padding: 20px var(--page-margin-desktop, 40px) 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  @media only screen and (max-width: 749px) {
+    .pb-top {
+      padding: 16px var(--page-margin-mobile, 20px) 0;
+    }
+  }
+  .pb-top a {
+    color: #999999;
+    text-decoration: none;
+  }
+  .pb-top a:hover {
+    color: #1A1A1A;
+  }
+  .pb-top__current {
+    color: #1A1A1A;
+  }
+  .pb-top__sep {
+    opacity: 0.4;
+    margin: 0 4px;
+  }
+{% endstyle %}
+
+<nav class="pb-top section-{{ section.id }}" aria-label="Breadcrumb">
+  <a href="{{ routes.root_url }}">Accueil</a>
+  <span class="pb-top__sep">/</span>
+  {% if collection %}
+    <a href="{{ collection.url }}">{{ collection.title }}</a>
+  {% else %}
+    <a href="{{ routes.all_products_collection_url }}">Catalogue</a>
+  {% endif %}
+  <span class="pb-top__sep">/</span>
+  <span class="pb-top__current">{{ product.title }}</span>
+</nav>
+
+{% schema %}
+{
+  "name": "Fil d'ariane produit",
+  "settings": []
+}
+{% endschema %}

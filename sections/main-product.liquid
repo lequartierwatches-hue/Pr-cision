@@ -336,7 +336,6 @@
               </div>
             
             {%- when 'breadcrumb' -%}
-            {% if product.metafields.custom.breadcrumb != blank %}
             {% assign position_counter = 0 %}
             <nav aria-label="Breadcrumb">
               <div class="product-breadcrumb-block text-small {{ block.settings.text_case }}" {{ block.shopify_attributes }}>
@@ -348,6 +347,7 @@
                     <meta itemprop="position" content="1" />
                   </li>
                 {% endif %}
+                {% if product.metafields.custom.breadcrumb != blank %}
                 {% for collection in product.metafields.custom.breadcrumb.value %}
                   {% assign position_counter = position_counter | plus: 1 %}
                   <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -355,6 +355,19 @@
                     <meta itemprop="position" content="{{ position_counter }}" />
                   </li>
                 {% endfor %}
+                {% elsif collection %}
+                  {% assign position_counter = position_counter | plus: 1 %}
+                  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="{{ collection.url }}"><span itemprop="name">{{ collection.title }}</span></a> <span class="product-breadcrumb--divider">{% if block.settings.divider_style == 'slash' %}/{% else %}&bull;{% endif %}</span>
+                    <meta itemprop="position" content="{{ position_counter }}" />
+                  </li>
+                {% else %}
+                  {% assign position_counter = position_counter | plus: 1 %}
+                  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="{{ routes.all_products_collection_url }}"><span itemprop="name">Catalogue</span></a> <span class="product-breadcrumb--divider">{% if block.settings.divider_style == 'slash' %}/{% else %}&bull;{% endif %}</span>
+                    <meta itemprop="position" content="{{ position_counter }}" />
+                  </li>
+                {% endif %}
                   <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <span class="product-breadcrumb--product-title" aria-current="page"><span itemprop="name">{{ product.title }}</span></span>
                     <meta itemprop="item" content="{{ canonical_url }}">
@@ -363,8 +376,7 @@
                 </ol>
               </div>
             </nav>
-            {% endif %}
-            
+
             {%- when 'text' -%}
             <style>
               .product-text-{{ block.id }} {

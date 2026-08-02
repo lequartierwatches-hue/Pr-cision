@@ -39,3 +39,39 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
 .product-info-tabs .tab-button[aria-selected="true"] {
   font-weight: 600 !important;
 }
+
+/* === BOUTON AJOUTER AU PANIER: PRIX A DROITE, LABEL A GAUCHE (style Kruk) === */
+.product-form__submit {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between !important;
+  gap: 12px;
+  text-align: left !important;
+  min-height: 3.6rem;
+  padding-left: 1.75rem !important;
+  padding-right: 1.75rem !important;
+}
+.product-form__submit-label {
+  text-align: left;
+}
+.product-form__submit-price {
+  display: flex;
+  align-items: center;
+}
+.product-form__submit-price .price,
+.product-form__submit-price .price-item--regular,
+.product-form__submit-price .price__sale {
+  color: #ffffff !important;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* === HARMONISER LA TAILLE DU BOUTON SHOP PAY AVEC AJOUTER AU PANIER === */
+.product-form__buttons .shopify-payment-button {
+  min-height: 3.6rem;
+  margin-top: 8px;
+}
+.product-form__buttons button.shopify-payment-button__button--unbranded,
+.product-form__buttons .shopify-payment-button [role="button"] {
+  min-height: 3.6rem !important;
+}

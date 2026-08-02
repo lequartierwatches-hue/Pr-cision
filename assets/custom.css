@@ -50,13 +50,18 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
   min-height: 4.4rem;
   padding-left: 1.75rem !important;
   padding-right: 1.75rem !important;
-  border-radius: 0 !important;
+  border-radius: 10px !important;
 }
 .product-form__buttons {
   width: 100%;
 }
 .product-form__submit-label {
   text-align: left;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
 }
 .product-form__submit-price {
   display: flex;
@@ -66,8 +71,10 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
 .product-form__submit-price .price-item--regular,
 .product-form__submit-price .price__sale {
   color: #ffffff !important;
-  font-size: inherit;
-  font-weight: inherit;
+  font-size: 12px !important;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
 }
 
 /* === CENTRER LE BLOC INFO VERTICALEMENT PAR RAPPORT A L'IMAGE (style Kruk) === */

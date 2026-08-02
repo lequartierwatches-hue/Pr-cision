@@ -66,6 +66,12 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
   font-weight: inherit;
 }
 
+/* === CENTRER LE BLOC INFO VERTICALEMENT PAR RAPPORT A L'IMAGE (style Kruk) === */
+.product-main-info-section.vertical-align-center {
+  display: flex;
+  align-items: center;
+}
+
 /* === HARMONISER LA TAILLE DU BOUTON SHOP PAY AVEC AJOUTER AU PANIER === */
 .product-form__buttons .shopify-payment-button {
   min-height: 3.6rem;

@@ -211,6 +211,7 @@ if (!customElements.get('product-info')) {
           }
           
           updateSourceFromDestination('price');
+          updateSourceFromDestination('button-price');
           updateSourceFromDestination('sticky-price');
           updateSourceFromDestination('stickyMedia');
           updateSourceFromDestination('Sku', ({ classList }) => classList.contains('hidden'));

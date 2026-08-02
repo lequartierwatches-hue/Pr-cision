@@ -120,6 +120,9 @@
                 {{ add_label }}
               {%- endif -%}
             </span>
+            {%- if product.selected_or_first_available_variant != null and product.selected_or_first_available_variant.available != false and quantity_rule_soldout != true -%}
+              <span id="button-price-{{ section_id }}" class="product-form__submit-price">{%- render 'price', product: product, use_variant: true -%}</span>
+            {%- endif -%}
             {%- render 'loading-spinner' -%}
           </button>
           {%- if show_dynamic_checkout -%}

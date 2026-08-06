@@ -142,6 +142,10 @@ a.krukstyle-cta {
   text-transform: uppercase !important;
   text-decoration: none !important;
   box-shadow: none !important;
+  display: flex !important;
+  width: max-content !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 a.krukstyle-cta:hover,
 a.krukstyle-cta:visited,

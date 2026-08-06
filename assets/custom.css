@@ -156,3 +156,31 @@ a.krukstyle-cta:active {
   text-decoration: none !important;
 }
 
+/* === CARTES "COLLECTIONS" ACCUEIL: NOM + DECOUVRIR CENTRES SOUS L'IMAGE (style Le Tanneur) === */
+.card-type-overlay .card-collection--title {
+  position: absolute !important;
+  text-align: center !important;
+}
+.card-type-overlay .card-title-bottom {
+  bottom: 0 !important;
+}
+.card-type-overlay .card-collection--title h3 {
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: #1A1A1A !important;
+}
+.card-type-overlay .card-collection--title .card-button-inline {
+  display: table !important;
+  margin: 8px auto 0 auto !important;
+  text-align: center !important;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #1A1A1A !important;
+}
+

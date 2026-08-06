@@ -183,4 +183,19 @@ a.krukstyle-cta:active {
   text-transform: uppercase !important;
   color: #1A1A1A !important;
 }
+@media only screen and (max-width: 749px) {
+  .card-type-overlay .card-title-bottom {
+    padding: 0 10px 10px 10px !important;
+  }
+  .card-type-overlay .card-collection--title h3 {
+    font-size: 12px !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.2 !important;
+  }
+  .card-type-overlay .card-collection--title .card-button-inline {
+    font-size: 9px !important;
+    letter-spacing: 0.06em !important;
+    margin-top: 4px !important;
+  }
+}
 

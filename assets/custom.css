@@ -50,7 +50,7 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
   min-height: 4.4rem;
   padding-left: 1.75rem !important;
   padding-right: 1.75rem !important;
-  border-radius: 10px !important;
+  border-radius: 5px !important;
 }
 .product-form__buttons {
   width: 100%;
@@ -82,3 +82,4 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
   display: flex;
   align-items: center;
 }
+

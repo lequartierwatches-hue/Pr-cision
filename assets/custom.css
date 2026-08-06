@@ -199,4 +199,21 @@ a.krukstyle-cta:active {
   }
 }
 
+/* === BANDE D'ANNONCE: MEME POLICE/COULEUR QUE KRUK === */
+.header-announcement-bar .announcement-block {
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #e5e5e5 !important;
+}
+.header-announcement-bar .announcement-block a {
+  color: #e5e5e5 !important;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+}
+
 

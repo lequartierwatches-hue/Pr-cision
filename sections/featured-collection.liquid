@@ -92,10 +92,10 @@
 {% if section.settings.btn_position_desktop contains 'top' or section.settings.btn_position_mobile contains 'top' %}
 <div class="section-footer section-footer--within-header button-color-scheme--{{ section.settings.btn_color_scheme }}{% if section.settings.btn_label.size > 10 %} button-sft-wide{% endif %}">
     {% if section.settings.btn_style == 'solid' %}
-  <a href="{{ section.settings.collection.url }}" role="link" class="button button--solid">{{ section.settings.btn_label }}</a>
+  <a href="{{ section.settings.collection.url }}" role="link" class="button button--solid krukstyle-cta">{{ section.settings.btn_label }}</a>
     {% endif %}
     {% if section.settings.btn_style == 'outline' %}
-  <a href="{{ section.settings.collection.url }}" role="link" class="button button--outline">{{ section.settings.btn_label }}</a>
+  <a href="{{ section.settings.collection.url }}" role="link" class="button button--outline krukstyle-cta">{{ section.settings.btn_label }}</a>
     {% endif %}
     {% if section.settings.btn_style == 'link' %}
   <a href="{{ section.settings.collection.url }}" role="link" class="link--underlined">{{ section.settings.btn_label }}</a>
@@ -194,10 +194,10 @@
 {% unless section.settings.btn_position_desktop contains 'top' and section.settings.btn_position_mobile contains 'top' %}
 <div class="section-footer page-width sf-position-mobile--{{ section.settings.btn_position_mobile }} sf-position-desktop--{{ section.settings.btn_position_desktop }} text-align-{{ section.settings.content_alignment }} button-color-scheme--{{ section.settings.btn_color_scheme }}">
     {% if section.settings.btn_style == 'solid' %}
-  <a href="{{ section.settings.collection.url }}" role="link" class="button button--solid">{{ section.settings.btn_label }}</a>
+  <a href="{{ section.settings.collection.url }}" role="link" class="button button--solid krukstyle-cta">{{ section.settings.btn_label }}</a>
     {% endif %}
     {% if section.settings.btn_style == 'outline' %}
-  <a href="{{ section.settings.collection.url }}" role="link" class="button button--outline">{{ section.settings.btn_label }}</a>
+  <a href="{{ section.settings.collection.url }}" role="link" class="button button--outline krukstyle-cta">{{ section.settings.btn_label }}</a>
     {% endif %}
     {% if section.settings.btn_style == 'link' %}
   <a href="{{ section.settings.collection.url }}" role="link" class="link--underlined">{{ section.settings.btn_label }}</a>

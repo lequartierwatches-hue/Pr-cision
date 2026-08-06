@@ -128,3 +128,27 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
   row-gap: 4px !important;
 }
 
+/* === BOUTON "VOIR TOUT" (NOS ECRINS) MEME STYLE QUE "DECOUVRIR" === */
+a.krukstyle-cta {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 24px !important;
+  padding: 10px 28px !important;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+a.krukstyle-cta:hover,
+a.krukstyle-cta:visited,
+a.krukstyle-cta:focus,
+a.krukstyle-cta:active {
+  color: #ffffff !important;
+  background-color: #000000 !important;
+  text-decoration: none !important;
+}
+

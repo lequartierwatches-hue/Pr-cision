@@ -122,3 +122,9 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
   row-gap: 4px !important;
 }
 
+/* === RAPPROCHER LES IMAGES DE LA GRILLE "COLLECTIONS" (cartes collection accueil) === */
+.slider-grid-collection.grid {
+  column-gap: 4px !important;
+  row-gap: 4px !important;
+}
+

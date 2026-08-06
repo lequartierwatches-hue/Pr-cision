@@ -108,3 +108,17 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
   text-decoration: none !important;
 }
 
+/* === TITRE "NOS ECRINS" (collection en vedette accueil) === */
+.section-header .h1 {
+  text-align: left !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+}
+
+/* === RAPPROCHER LES IMAGES DE LA GRILLE "NOS ECRINS" === */
+.featured-collection-grid.grid {
+  column-gap: 4px !important;
+  row-gap: 4px !important;
+}
+

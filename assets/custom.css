@@ -109,7 +109,8 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
 }
 
 /* === TITRE "NOS ECRINS" (collection en vedette accueil) === */
-.section-header .h1 {
+.section-header .h1,
+.rich-text-content .h1 {
   text-align: left !important;
   font-weight: 800 !important;
   letter-spacing: 0 !important;

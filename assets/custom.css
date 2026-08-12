@@ -221,32 +221,29 @@ a.krukstyle-cta:active {
   color: #666666 !important;
 }
 
-/* === BANDE D'ANNONCE (couleurs inversées: fond sombre / texte clair) === */
+/* === BANDE D'ANNONCE (style Kruk: fond noir, texte gras majuscule) === */
 .header-announcement-bar {
   height: 35px !important;
   background-color: #1A1A1A !important;
 }
 .header-announcement-bar .announcement-block {
   font-family: 'Jost', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 13px !important;
-  letter-spacing: 0.01em !important;
-  text-transform: none !important;
-  color: #F0F0EE !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #d9d9d9 !important;
   opacity: 1 !important;
   animation: none !important;
   position: static !important;
   pointer-events: auto !important;
 }
-.header-announcement-bar .announcement-block strong {
-  font-weight: 700 !important;
-}
 .header-announcement-bar .announcement-block a {
-  color: #F0F0EE !important;
+  color: #d9d9d9 !important;
   font-family: 'Jost', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 13px !important;
-  letter-spacing: 0.01em !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
 }
 
 

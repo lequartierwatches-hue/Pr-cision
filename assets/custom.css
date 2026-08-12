@@ -232,6 +232,10 @@ a.krukstyle-cta:active {
   letter-spacing: 0.01em !important;
   text-transform: none !important;
   color: #F0F0EE !important;
+  opacity: 1 !important;
+  animation: none !important;
+  position: static !important;
+  pointer-events: auto !important;
 }
 .header-announcement-bar .announcement-block strong {
   font-weight: 700 !important;

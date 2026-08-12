@@ -224,6 +224,7 @@ a.krukstyle-cta:active {
 /* === BANDE D'ANNONCE (couleurs inversées: fond sombre / texte clair) === */
 .header-announcement-bar {
   height: 35px !important;
+  background-color: #1A1A1A !important;
 }
 .header-announcement-bar .announcement-block {
   font-family: 'Jost', sans-serif !important;
@@ -247,5 +248,7 @@ a.krukstyle-cta:active {
   font-size: 13px !important;
   letter-spacing: 0.01em !important;
 }
+
+
 
 

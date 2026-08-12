@@ -200,27 +200,21 @@ a.krukstyle-cta:active {
   }
 }
 
-/* === BANDE D'ANNONCE === */
-.header-announcement-bar {
-  height: 35px !important;
-}
+/* === BANDE D'ANNONCE: MEME POLICE/COULEUR QUE KRUK === */
 .header-announcement-bar .announcement-block {
   font-family: 'Jost', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 13px !important;
-  letter-spacing: 0.01em !important;
-  text-transform: none !important;
-  color: #1A1A1A !important;
-}
-.header-announcement-bar .announcement-block strong {
-  font-weight: 700 !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #e5e5e5 !important;
 }
 .header-announcement-bar .announcement-block a {
-  color: #1A1A1A !important;
+  color: #e5e5e5 !important;
   font-family: 'Jost', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 13px !important;
-  letter-spacing: 0.01em !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
 }
 
 

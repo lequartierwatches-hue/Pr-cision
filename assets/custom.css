@@ -246,5 +246,74 @@ a.krukstyle-cta:active {
   letter-spacing: 0.06em !important;
 }
 
+/* ============================================================
+   FINITIONS "PREMIUM": TRANSITIONS ET EFFETS AU SURVOL
+   Le site n'avait aucune interaction au survol (tout était figé).
+   Ajout de transitions douces cohérentes sur boutons, cartes et liens.
+   ============================================================ */
 
+/* --- Boutons CTA (Découvrir, Voir tout, Ajouter au panier) --- */
+.image-banner-buttons-inline a.button,
+a.krukstyle-cta,
+.product-form__submit {
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+.image-banner-buttons-inline a.button:hover,
+a.krukstyle-cta:hover {
+  opacity: 0.82 !important;
+}
+.product-form__submit:hover:not([disabled]) {
+  opacity: 0.88;
+}
+
+/* --- Cartes produit: légère élévation + ombre douce au survol --- */
+.card-product {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-product:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Cartes collection (overlay "Découvrir"): zoom doux de l'image --- */
+.card-type-overlay .card-media {
+  overflow: hidden;
+}
+.card-type-overlay .card-media img {
+  transition: transform 0.6s ease;
+}
+.card-type-overlay:hover .card-media img {
+  transform: scale(1.05);
+}
+
+/* --- Titres de produit: transition de couleur au survol --- */
+.card__heading a,
+.product-card__title {
+  transition: opacity 0.2s ease;
+}
+.card-product:hover .card__heading a {
+  opacity: 0.7;
+}
+
+/* --- Navigation: soulignement animé au survol (touche premium) --- */
+.header__menu-item {
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+.header__menu-item:hover {
+  opacity: 0.65;
+}
+
+/* --- Liens texte génériques: transition douce au lieu d'un changement brut --- */
+a, .link {
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+/* --- Accessibilité: contour de focus visible au clavier --- */
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible {
+  outline: 2px solid #1A1A1A;
+  outline-offset: 2px;
+}
 

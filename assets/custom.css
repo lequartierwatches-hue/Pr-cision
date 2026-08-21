@@ -1,8 +1,11 @@
+/* === POLICE EDITORIALE (grands titres) === */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');
+
 /* === GLOBAL === */
 body, p, li, span {font-family: 'Jost', sans-serif; font-weight: 300; font-size: 15px; letter-spacing: 0.02em; line-height: 1.7;}
 
 /* === TITRES === */
-h1 {font-family: 'Jost', sans-serif; font-weight: 700; font-size: 48px; letter-spacing: 0.08em; text-transform: uppercase;}
+h1 {font-family: 'Fraunces', 'Jost', serif; font-weight: 600; font-size: 48px; letter-spacing: 0; text-transform: none;}
 h2 {font-family: 'Jost', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase;}
 h3 {font-family: 'Jost', sans-serif; font-weight: 400; font-size: 20px; letter-spacing: 0.05em; text-transform: uppercase;}
 h4, h5 {font-family: 'Jost', sans-serif; font-weight: 400; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;}
@@ -11,7 +14,7 @@ h4, h5 {font-family: 'Jost', sans-serif; font-weight: 400; font-size: 13px; lett
 nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.20em; text-transform: uppercase;}
 
 /* === CARDS PRODUIT === */
-.card__heading, .card__heading a, .product-card__title {font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: #1A1A1A;}
+.card__heading, .card__heading a, .product-card__title {font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: #1C1A17;}
 
 /* === PRIX === */
 .price, .card__price {font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px; letter-spacing: 0.05em;}
@@ -85,7 +88,7 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
 
 /* === BOUTON "DECOUVRIR" DE LA BANNIERE ACCUEIL (style Kruk) === */
 .image-banner-buttons-inline a.button {
-  background-color: #000000 !important;
+  background-color: #1C1A17 !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 24px !important;
@@ -104,7 +107,7 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
 .image-banner-buttons-inline a.button:focus,
 .image-banner-buttons-inline a.button:active {
   color: #ffffff !important;
-  background-color: #000000 !important;
+  background-color: #1C1A17 !important;
   text-decoration: none !important;
 }
 
@@ -112,9 +115,10 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
 .section-header .h1,
 .rich-text-content .h1 {
   text-align: left !important;
-  font-weight: 800 !important;
+  font-family: 'Fraunces', 'Jost', serif !important;
+  font-weight: 600 !important;
   letter-spacing: 0 !important;
-  text-transform: uppercase !important;
+  text-transform: none !important;
 }
 
 /* === RAPPROCHER LES IMAGES DE LA GRILLE "NOS ECRINS" === */
@@ -131,7 +135,7 @@ nav a, .header__menu-item, .menu-drawer__menu-item {font-family: 'Jost', sans-se
 
 /* === BOUTON "VOIR TOUT" (NOS ECRINS) MEME STYLE QUE "DECOUVRIR" === */
 a.krukstyle-cta {
-  background-color: #000000 !important;
+  background-color: #1C1A17 !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 24px !important;
@@ -153,7 +157,7 @@ a.krukstyle-cta:visited,
 a.krukstyle-cta:focus,
 a.krukstyle-cta:active {
   color: #ffffff !important;
-  background-color: #000000 !important;
+  background-color: #1C1A17 !important;
   text-decoration: none !important;
 }
 
@@ -171,7 +175,7 @@ a.krukstyle-cta:active {
   font-size: 20px !important;
   letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
-  color: #1A1A1A !important;
+  color: #1C1A17 !important;
 }
 .card-type-overlay .card-collection--title .card-button-inline {
   display: table !important;
@@ -182,7 +186,7 @@ a.krukstyle-cta:active {
   font-size: 11px !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  color: #1A1A1A !important;
+  color: #A67C52 !important;
 }
 @media only screen and (max-width: 749px) {
   .card-type-overlay .card-title-bottom {
@@ -202,12 +206,12 @@ a.krukstyle-cta:active {
 
 /* === TITRE + TEXTE DES SECTIONS "IMAGE AVEC TEXTE" (produits vedette accueil) === */
 .section-featured-product h2 {
-  font-family: 'Jost', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 22px !important;
+  font-family: 'Fraunces', 'Jost', serif !important;
+  font-weight: 600 !important;
+  font-size: 26px !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
-  color: #1A1A1A !important;
+  color: #1C1A17 !important;
 }
 .section-featured-product .featured-product--description,
 .section-featured-product .featured-product--description p,
@@ -218,13 +222,13 @@ a.krukstyle-cta:active {
   font-size: 11px !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
-  color: #666666 !important;
+  color: #665F52 !important;
 }
 
 /* === BANDE D'ANNONCE (style Kruk: fond noir, texte gras majuscule) === */
 .header-announcement-bar {
   height: 35px !important;
-  background-color: #1A1A1A !important;
+  background-color: #1C1A17 !important;
 }
 .header-announcement-bar .announcement-block {
   font-family: 'Jost', sans-serif !important;
@@ -232,14 +236,14 @@ a.krukstyle-cta:active {
   font-size: 11px !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
-  color: #d9d9d9 !important;
+  color: #E8E2D6 !important;
   opacity: 1 !important;
   animation: none !important;
   position: static !important;
   pointer-events: auto !important;
 }
 .header-announcement-bar .announcement-block a {
-  color: #d9d9d9 !important;
+  color: #E8E2D6 !important;
   font-family: 'Jost', sans-serif !important;
   font-weight: 700 !important;
   font-size: 11px !important;
@@ -286,22 +290,22 @@ a.krukstyle-cta:hover {
   transform: scale(1.05);
 }
 
-/* --- Titres de produit: transition de couleur au survol --- */
+/* --- Titres de produit: accent laiton au survol --- */
 .card__heading a,
 .product-card__title {
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease;
 }
 .card-product:hover .card__heading a {
-  opacity: 0.7;
+  color: #A67C52 !important;
 }
 
-/* --- Navigation: soulignement animé au survol (touche premium) --- */
+/* --- Navigation: accent laiton au survol (touche premium) --- */
 .header__menu-item {
   position: relative;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease;
 }
 .header__menu-item:hover {
-  opacity: 0.65;
+  color: #A67C52 !important;
 }
 
 /* --- Liens texte génériques: transition douce au lieu d'un changement brut --- */
@@ -313,7 +317,7 @@ a, .link {
 a:focus-visible,
 button:focus-visible,
 .button:focus-visible {
-  outline: 2px solid #1A1A1A;
+  outline: 2px solid #A67C52;
   outline-offset: 2px;
 }
 

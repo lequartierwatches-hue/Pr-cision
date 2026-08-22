@@ -318,8 +318,14 @@ a.krukstyle-cta:active {
   white-space: normal !important;
   opacity: 0.7;
 }
-/* Si le champ contient plusieurs balises <p> ou des <br> manuels (au lieu d'un seul
-   paragraphe continu), on force tout a s'enchainer inline sur la meme ligne */
+/* Cause reelle trouvee: la regle du theme ".footer-block-column a { display:block; }"
+   (prevue pour empiler les liens des colonnes Service Client/Legal) s'applique aussi
+   aux liens a l'interieur du texte legal, puisqu'il est dans le meme conteneur.
+   On la neutralise ici pour que les liens redeviennent inline dans la phrase. */
+.footer-block-column .footer-newsletter-legal-note a {
+  display: inline !important;
+  padding: 0 !important;
+}
 .site-footer .footer-newsletter-legal-note p {
   display: inline !important;
   margin: 0 !important;

@@ -392,4 +392,47 @@ a.krukstyle-cta:active {
   text-decoration: none !important;
 }
 
+/* ============================================================
+   BARRE "LIVRAISON / RETOURS / PAIEMENT": carrousel qui glisse
+   automatiquement sur mobile (1 a la fois) et tablette (2 a la fois),
+   avec points de pagination. Desktop (990px+) reste inchange (statique).
+   ============================================================ */
+.shopping-info-slider {
+  overflow: hidden;
+}
+.shopping-info-slider--active .multicolumn-grid {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  transition: transform 0.5s ease;
+}
+.shopping-info-slider--active .multicolumn-grid-item {
+  flex-shrink: 0;
+  border-right: 1px solid rgba(var(--color-foreground-rgb), 0.15);
+}
+.shopping-info-slider--active .multicolumn-grid-item:last-child {
+  border-right: none;
+}
+.shopping-info-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 20px;
+}
+.shopping-info-slider--active .shopping-info-dots {
+  display: flex;
+}
+.shopping-info-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(var(--color-foreground-rgb), 0.25);
+  cursor: pointer;
+}
+.shopping-info-dot.active {
+  background: rgba(var(--color-foreground-rgb), 1);
+}
+
 

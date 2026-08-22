@@ -177,9 +177,9 @@
 <div class="section-container multicolumn-section footer-shopping-info-section section-{{ section.id }} color-scheme-{{ section.settings.text_color }} color-scheme-{{ section.settings.bg_color }}">
 <div class="section-inner {{ section.settings.content_width }}">
 
-<div class="multicolumn-grid-wrapper">
-<div class="multicolumn-grid {{ col_width }}{% if section.settings.keylines_show %} keyline-grid{% endif %} align-{{ section.settings.text_alignment }}">
-{% for block in section.blocks %}  
+<div class="multicolumn-grid-wrapper shopping-info-slider" data-shopping-info-slider data-count="{{ section.blocks.size }}">
+<div class="multicolumn-grid {{ col_width }}{% if section.settings.keylines_show %} keyline-grid{% endif %} align-{{ section.settings.text_alignment }}" data-shopping-info-track>
+{% for block in section.blocks %}
 <div class="multicolumn-grid-item shopping-info-item icon-size-{{ section.settings.icon_size }}" {{ block.shopify_attributes }}>
   {% if block.settings.icon == 'return' %}{% render 'icon-replay' %}{% endif %}
   {% if block.settings.icon == 'service' %}{% render 'icon-service' %}{% endif %}
@@ -201,10 +201,112 @@
 </div>
 {% endfor %}
 </div>
+{% if section.blocks.size > 1 %}
+<div class="shopping-info-dots" data-shopping-info-dots>
+  {% for block in section.blocks %}
+  <button type="button" class="shopping-info-dot" aria-label="{{ forloop.index }}"></button>
+  {% endfor %}
 </div>
-  
+{% endif %}
+</div>
+
 </div>
 </div>
+
+{% if section.blocks.size > 1 %}
+<script>
+(function () {
+  function initShoppingInfoSlider(root) {
+    var track = root.querySelector('[data-shopping-info-track]');
+    var dots = Array.prototype.slice.call(root.querySelectorAll('[data-shopping-info-dots] .shopping-info-dot'));
+    var count = parseInt(root.getAttribute('data-count'), 10) || track.children.length;
+    var index = 0;
+    var timer = null;
+
+    function itemsPerView() {
+      var w = window.innerWidth;
+      if (w >= 990) return count;
+      if (w >= 750) return 2;
+      return 1;
+    }
+
+    function render() {
+      var ipv = itemsPerView();
+      if (ipv >= count) {
+        track.style.transform = '';
+        root.classList.remove('shopping-info-slider--active');
+        dots.forEach(function (d) { d.classList.remove('active'); });
+        return;
+      }
+      root.classList.add('shopping-info-slider--active');
+      var maxIndex = count - ipv;
+      if (index > maxIndex) index = 0;
+      var itemWidth = 100 / ipv;
+      track.style.transform = 'translateX(-' + (index * itemWidth) + '%)';
+      Array.prototype.forEach.call(track.children, function (el) {
+        el.style.flex = '0 0 ' + itemWidth + '%';
+      });
+      var activeDot = Math.min(index + ipv - 1, count - 1);
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === activeDot);
+      });
+    }
+
+    function goTo(i) {
+      var ipv = itemsPerView();
+      var maxIndex = Math.max(count - ipv, 0);
+      index = Math.max(0, Math.min(i, maxIndex));
+      render();
+    }
+
+    function next() {
+      var ipv = itemsPerView();
+      var maxIndex = Math.max(count - ipv, 0);
+      index = index >= maxIndex ? 0 : index + 1;
+      render();
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (itemsPerView() >= count) return;
+      timer = setInterval(next, 3500);
+    }
+
+    function stopAutoplay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        var ipv = itemsPerView();
+        goTo(i - ipv + 1);
+        startAutoplay();
+      });
+    });
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        index = 0;
+        render();
+        startAutoplay();
+      }, 200);
+    });
+
+    render();
+    startAutoplay();
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-shopping-info-slider]').forEach(initShoppingInfoSlider);
+  });
+})();
+</script>
+{% endif %}
 
 {% schema %}
   {

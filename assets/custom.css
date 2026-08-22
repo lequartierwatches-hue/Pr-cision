@@ -276,6 +276,28 @@ a.krukstyle-cta:active {
 .footer-blocks-container .footer-logo-block img {
   margin: 0 !important;
 }
+/* Typo des colonnes de liens (A propos / Service client / Legal): titres gras
+   majuscules, liens en texte normal sans soulignement (uniquement au survol) */
+.site-footer .footer-block-heading {
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+}
+.site-footer .footer-block-column--text .rte a {
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.site-footer .footer-block-column--text .rte a:hover {
+  text-decoration: underline !important;
+}
 /* Sous-titre newsletter: meme typo que le texte courant (pas de style "heading") */
 .footer-block-newsletter .footer-block-subheading,
 .footer-block-newsletter .footer-block-subheading p {

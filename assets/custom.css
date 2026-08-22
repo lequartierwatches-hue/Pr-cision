@@ -407,10 +407,9 @@ a.krukstyle-cta:active {
 }
 .shopping-info-slider--active .multicolumn-grid-item {
   flex-shrink: 0;
-  border-right: 1px solid rgba(var(--color-foreground-rgb), 0.15);
 }
-.shopping-info-slider--active .multicolumn-grid-item:last-child {
-  border-right: none;
+.shopping-info-slider--active .multicolumn-grid-item::after {
+  content: none !important;
 }
 .shopping-info-dots {
   display: none;

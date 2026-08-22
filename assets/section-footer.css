@@ -568,9 +568,13 @@
 .footer-block-column--text a {
   padding: 0;
   display: inline-block;
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+}
+
+.footer-block-column--text a:hover {
+  text-decoration: underline;
 }
 
 .footer-block-column .icon {

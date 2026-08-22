@@ -23,6 +23,14 @@
 
 {% assign flexbasisnumb = numb_blocks | minus: count %}
 
+{% assign first_block = section.blocks[0] %}
+{% assign second_block = section.blocks[1] %}
+{% assign logo_newsletter_stack = false %}
+{% if first_block.type == 'logo' and first_block.settings.block_width != 'full_width' and second_block.type == 'newsletter_signup' %}
+  {% assign logo_newsletter_stack = true %}
+  {% assign stacked_columns = numb_blocks | minus: 1 %}
+{% endif %}
+
 {%- style -%}
 :root {
   --footer-column-gap-desktop: {{ section.settings.footer_horizontal_spacing_desktop }}px;
@@ -114,7 +122,27 @@
   .footer-blocks-container {
     column-gap: {{ section.settings.footer_horizontal_spacing_desktop }}px;
     padding-bottom: {{ section.settings.footer_padding_bottom }}px;
-  }  
+  }
+  {% if logo_newsletter_stack %}
+  .footer-blocks-container {
+    grid-template-columns: repeat({{ stacked_columns }}, 1fr);
+    align-items: start;
+  }
+  .footer-blocks-container > *:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .footer-blocks-container > *:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  {% for i in (3..numb_blocks) %}
+  .footer-blocks-container > *:nth-child({{ i }}) {
+    grid-column: {{ i | minus: 1 }};
+    grid-row: 1 / span 2;
+  }
+  {% endfor %}
+  {% endif %}
 }
 
 @media only screen and (min-width: 1025px) {

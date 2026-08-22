@@ -75,25 +75,25 @@
             "logo_size": 50,
             "logo_full_width": false,
             "logo_opacity": 100,
-            "alignment": "center",
+            "alignment": "left",
             "logo_padding_top": 0,
-            "logo_padding_bottom": 0,
-            "block_width": "full_width"
+            "logo_padding_bottom": 10,
+            "block_width": "column_width"
           }
         },
         "newsletter_signup_EbBhMV": {
           "type": "newsletter_signup",
           "settings": {
-            "heading": "Rejoignez notre liste",
+            "heading": "",
             "heading_size": "fbh-normal",
             "heading_style": "normal",
             "subheading": "<p>Inscrivez-vous pour recevoir nos actualités et offres</p>",
             "disclaimer_show": true,
             "disclaimer": "<p>En vous inscrivant, vous acceptez nos <a href=\"/policies/terms-of-service\">conditions générales</a>, notre <a href=\"/policies/privacy-policy\">politique de confidentialité</a> et notre <a href=\"/policies/refund-policy\">politique de cookies</a>.</p>",
             "newsletter_form_width": "normal",
-            "newsletter_style": "minimal",
+            "newsletter_style": "outline",
             "border_opacity": 80,
-            "newsletter_submit_style": "text-only",
+            "newsletter_submit_style": "outline-button",
             "padding_top": 20,
             "padding_bottom": 20,
             "alignment": "left",

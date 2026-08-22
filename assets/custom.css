@@ -246,36 +246,26 @@ a.krukstyle-cta:active {
   letter-spacing: 0.06em !important;
 }
 
-/* === PIED DE PAGE: logo au-dessus du bloc newsletter, meme colonne (style Martine) === */
+/* === PIED DE PAGE: newsletter a gauche, les 3 blocs texte a droite sur une seule ligne
+   (style Martine). On cible le logo et la newsletter par leur classe (fiable), et on
+   laisse les 3 blocs texte se placer automatiquement dans les colonnes restantes,
+   sans dependre de leur ordre ou position (nth-child s'est revele fragile). === */
 @media only screen and (min-width: 750px) {
   .footer-blocks-container {
-    grid-template-columns: minmax(400px, 1.6fr) 1fr 1fr 1fr !important;
+    grid-template-columns: minmax(380px, 1.4fr) repeat(3, 1fr) !important;
     grid-template-rows: auto auto !important;
     column-gap: 48px !important;
     align-items: start !important;
   }
-  /* nth-child (pas nth-of-type) car tous les blocs sont des <div> :
-     nth-of-type ignore la classe et compte uniquement par balise, ce qui
-     melangeait l'ordre des colonnes. Ordre reel: 1 logo, 2 newsletter,
-     3/4/5 = les 3 blocs texte (A propos, Service client, Legal). */
-  .footer-blocks-container > *:nth-child(1) {
+  .footer-blocks-container > .footer-logo-block {
     grid-column: 1 !important;
     grid-row: 1 !important;
   }
-  .footer-blocks-container > *:nth-child(2) {
+  .footer-blocks-container > .footer-block-newsletter {
     grid-column: 1 !important;
     grid-row: 2 !important;
   }
-  .footer-blocks-container > *:nth-child(3) {
-    grid-column: 2 !important;
-    grid-row: 1 / span 2 !important;
-  }
-  .footer-blocks-container > *:nth-child(4) {
-    grid-column: 3 !important;
-    grid-row: 1 / span 2 !important;
-  }
-  .footer-blocks-container > *:nth-child(5) {
-    grid-column: 4 !important;
+  .footer-blocks-container > .footer-block-column--text {
     grid-row: 1 / span 2 !important;
   }
 }

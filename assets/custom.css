@@ -317,3 +317,25 @@ button:focus-visible,
   outline-offset: 2px;
 }
 
+/* ============================================================
+   PIED DE PAGE: style clair, liens sans soulignement (survol uniquement)
+   ============================================================ */
+.site-footer .footer-block-column--text .rte a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.site-footer .footer-block-column--text .rte a:hover {
+  text-decoration: underline !important;
+}
+.site-footer .footer-block-heading {
+  color: #1A1A1A;
+}
+/* Empeche le texte de la mention legale de s'ecraser sur une colonne trop etroite */
+.site-footer .footer-block-newsletter {
+  min-width: 280px;
+  max-width: 340px;
+}
+.site-footer .footer-newsletter-legal-note {
+  max-width: none;
+}
+

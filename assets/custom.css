@@ -246,11 +246,11 @@ a.krukstyle-cta:active {
   letter-spacing: 0.06em !important;
 }
 
-/* === PIED DE PAGE: newsletter a gauche, les 3 blocs texte a droite sur une seule ligne
-   (style Martine). On cible le logo et la newsletter par leur classe (fiable), et on
-   laisse les 3 blocs texte se placer automatiquement dans les colonnes restantes,
-   sans dependre de leur ordre ou position (nth-child s'est revele fragile). === */
-@media only screen and (min-width: 750px) {
+/* === PIED DE PAGE DESKTOP (990px+): newsletter a gauche, les 3 blocs texte a droite
+   sur une seule ligne (style Martine). On cible le logo et la newsletter par leur
+   classe (fiable), et on laisse les 3 blocs texte se placer automatiquement dans les
+   colonnes restantes, sans dependre de leur ordre ou position. === */
+@media only screen and (min-width: 990px) {
   .footer-blocks-container {
     grid-template-columns: minmax(380px, 1.4fr) repeat(3, 1fr) !important;
     grid-template-rows: auto auto !important;
@@ -267,6 +267,37 @@ a.krukstyle-cta:active {
   }
   .footer-blocks-container > .footer-block-column--text {
     grid-row: 1 / span 2 !important;
+  }
+}
+
+/* === PIED DE PAGE MOBILE + TABLETTE (jusqu'a 989px): tout empile en une colonne,
+   logo puis newsletter puis les 3 blocs texte en accordeon (repli/depli au clic).
+   Le theme natif ne propose l'accordeon que pour les blocs "link_list", ici on
+   reutilise le meme mecanisme HTML/CSS/JS pour les blocs "text" (voir
+   sections/footer.liquid) et on etend le seuil natif de 750px a 989px. === */
+@media only screen and (max-width: 989px) {
+  .footer-blocks-container {
+    display: block !important;
+  }
+  .footer-blocks-container > * {
+    width: 100% !important;
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 989px) {
+  .footer-block-column--text .footer-block-linklist-ul {
+    visibility: hidden;
+    height: 0;
+  }
+  .footer-block-column--text .footer-block-linklist-ul.open {
+    visibility: visible;
+  }
+  .footer-block-column--text .footer-linklist-heading {
+    pointer-events: auto;
+    text-align: left !important;
+  }
+  .footer-block-column--text .footer-block-heading-icon-open,
+  .footer-block-column--text .footer-block-heading-icon-close {
+    display: block;
   }
 }
 .footer-blocks-container .footer-logo-block {

@@ -228,9 +228,16 @@
   </div>
   
 {% when 'text' %}
-<div class="footer-block-column footer-block-column--text {{ block.settings.text_size }} ftb-mobile-align-{{ block.settings.alignment_mobile }} align-{{ block.settings.alignment }}{% if block.settings.block_width == 'full_width' %} footer-block-fw{% endif %}" {{ block.shopify_attributes }}>
-  {% if block.settings.heading != blank %}<div class="footer-block-heading h4">{{ block.settings.heading | escape }}</div>{% endif %}
-  <span class="rte">{{ block.settings.subtext }}</span>
+<div class="footer-block-column footer-block-column--text footer-block-linklist-column-expanding {{ block.settings.text_size }} ftb-mobile-align-{{ block.settings.alignment_mobile }} align-{{ block.settings.alignment }}{% if block.settings.block_width == 'full_width' %} footer-block-fw{% endif %}" {{ block.shopify_attributes }}>
+  {% if block.settings.heading != blank %}
+  <div class="footer-block-heading footer-linklist-heading h4">{{ block.settings.heading | escape }}
+    <span class="footer-block-heading-icon-open">{% if settings.accordion_icon == 'plus' %}{% render 'icon-plus' %}{% else %}{% render 'icon-caret' %}{% endif %}</span>
+    <span class="footer-block-heading-icon-close">{% if settings.accordion_icon == 'plus' %}{% render 'icon-minus' %}{% else %}{% render 'icon-caret' %}{% endif %}</span>
+  </div>
+  {% endif %}
+  <div class="footer-block-linklist-ul footer-block-linklist-ul-expanding">
+    <span class="rte">{{ block.settings.subtext }}</span>
+  </div>
 </div>
 
 {% when 'newsletter_signup' %}

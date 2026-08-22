@@ -318,6 +318,11 @@ a.krukstyle-cta:active {
   text-transform: none !important;
   opacity: 0.7;
 }
+/* Si le champ contient des retours a la ligne manuels (<br>), on les neutralise
+   pour retrouver un paragraphe qui s'enchaine normalement */
+.site-footer .footer-newsletter-legal-note br {
+  display: none !important;
+}
 /* Bouton S'inscrire: retire la couleur bleue par defaut, aligne sur le noir/blanc du site */
 .site-footer .newsletter-form__button,
 .site-footer .newsletter-button-submit-label {

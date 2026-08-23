@@ -568,7 +568,11 @@ a.krukstyle-cta:active {
 .mobile-facets-close-button {
   margin-right: 16px;
 }
-/* Pastilles couleur du filtre: rondes, avec le nom dans la meme typo que le reste */
+/* Pastilles couleur du filtre: rondes et plus grandes, avec le nom dans la meme typo que le reste */
+.facets__visual-display-wrapper {
+  width: 22px !important;
+  height: 22px !important;
+}
 .facets__visual-display-wrapper .swatch {
   border-radius: 50% !important;
 }

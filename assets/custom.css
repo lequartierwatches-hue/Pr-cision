@@ -521,15 +521,16 @@ a.krukstyle-cta:active {
 }
 .facets-container-drawer .mobile-facets__open {
   display: flex !important;
+  flex-direction: row-reverse !important;
   align-items: center !important;
   gap: 8px;
 }
 .facets-container-drawer .mobile-facets__open-label {
   font-family: 'Jost', sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 12px !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
 }
 .facets-container-drawer .mobile-facets__open-wrapper {
   padding: 8px 10px !important;

@@ -526,4 +526,35 @@ a.krukstyle-cta:active {
   padding: 8px 10px !important;
 }
 
+/* Panneau du filtre: largeur reduite (style Kruk) + en-tete noir/blanc */
+@media only screen and (min-width: 750px) {
+  .mobile-facets__inner {
+    width: 380px !important;
+  }
+}
+.mobile-facets__header {
+  background-color: #1A1A1A !important;
+  border-bottom: none !important;
+}
+.mobile-facets__heading {
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+}
+.mobile-facets-close-button {
+  color: #ffffff !important;
+}
+.filter-drawer-category-heading {
+  text-transform: uppercase !important;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+  border-bottom: 1px solid rgba(var(--color-foreground-rgb), 0.5);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
 

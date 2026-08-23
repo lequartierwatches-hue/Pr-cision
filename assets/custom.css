@@ -474,8 +474,37 @@ a.krukstyle-cta:active {
 }
 .mob-drawer-bottom-panel .mob-drawer-social-linklist {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   align-items: center;
+}
+/* Icones reseaux sociaux: case carree, effet au survol (monte + inversion noir/blanc) */
+.mob-drawer-bottom-panel .mob-drawer-social-linklist ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mob-drawer-bottom-panel .mob-drawer-social-linklist a {
+  width: 34px !important;
+  height: 34px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(var(--color-foreground-rgb), 0.35);
+  border-radius: 4px;
+  padding: 0 !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.mob-drawer-bottom-panel .mob-drawer-social-linklist a .icon {
+  width: 15px !important;
+  height: 15px !important;
+}
+.mob-drawer-bottom-panel .mob-drawer-social-linklist a:hover {
+  transform: translateY(-3px);
+  background-color: #1A1A1A;
+  border-color: #1A1A1A;
+  color: #ffffff;
 }
 
 

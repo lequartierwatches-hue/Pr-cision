@@ -519,8 +519,17 @@ a.krukstyle-cta:active {
   justify-content: flex-end !important;
   flex-grow: 0 !important;
 }
+.facets-container-drawer .mobile-facets__open {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+}
 .facets-container-drawer .mobile-facets__open-label {
-  display: none !important;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
 }
 .facets-container-drawer .mobile-facets__open-wrapper {
   padding: 8px 10px !important;

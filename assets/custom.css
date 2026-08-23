@@ -568,10 +568,12 @@ a.krukstyle-cta:active {
 .mobile-facets-close-button {
   margin-right: 16px;
 }
-/* Pastilles couleur du filtre: rondes et plus grandes, avec le nom dans la meme typo que le reste */
+/* Pastilles couleur du filtre: rondes et plus grandes, avec le nom dans la meme typo que le reste.
+   Le vrai cercle (span.swatch) redevient "inline" une fois en position:static, donc il ignore
+   width/height en pourcentage: on force sa taille directement, pas seulement le conteneur. */
 .facets__visual-display-wrapper {
-  width: 92px !important;
-  height: 92px !important;
+  width: 30px !important;
+  height: 30px !important;
   align-items: center !important;
   justify-content: center !important;
 }
@@ -579,6 +581,9 @@ a.krukstyle-cta:active {
   align-items: center !important;
 }
 .facets__visual-display-wrapper .swatch {
+  display: block !important;
+  width: 30px !important;
+  height: 30px !important;
   border-radius: 50% !important;
 }
 .mobile-facets__label .facet-checkbox__text {

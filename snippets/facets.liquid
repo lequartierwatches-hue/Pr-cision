@@ -46,6 +46,7 @@
 {% assign filter_count = 0 %}
 {% assign total_filter_character_count = 0 %}
 {% for filter in results.filters %}
+  {%- if filter.type == 'price_range' %}{% continue %}{% endif -%}
     {% assign filter_count = filter_count | plus: 1 %}
   {% assign filter_character_count = filter.label | size %}
   {% assign total_filter_character_count = total_filter_character_count | plus: filter_character_count %}  
@@ -181,6 +182,7 @@
           {%- if filter_type == 'vertical' -%}       
             <div class="active-facets active-facets-desktop af-vert-clear">
             {%- for filter in results.filters -%}
+              {%- if filter.type == 'price_range' %}{% continue %}{% endif -%}
               {%- for value in filter.active_values -%}
                 <facet-remove class="visually-hidden">
                     <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
@@ -211,6 +213,7 @@
           {%- endif -%}
 
             {%- for filter in results.filters -%}
+              {%- if filter.type == 'price_range' %}{% continue %}{% endif -%}
               {% liquid
                 assign total_active_values = total_active_values | plus: filter.active_values.size
                 case filter.presentation
@@ -458,6 +461,7 @@
                   {% if settings.filter_type == 'vertical' %}
                   <div class="active-facets af-price-vertical">
                   {%- for filter in results.filters -%}
+              {%- if filter.type == 'price_range' %}{% continue %}{% endif -%}
                     {%- if filter.type == 'price_range' -%}
                       <facet-remove>
                         <a href="{{ filter.url_to_remove }}">
@@ -481,6 +485,7 @@
           {%- if filter_type == 'horizontal' -%}
             <div class="active-facets active-facets-desktop">
               {%- for filter in results.filters -%}
+              {%- if filter.type == 'price_range' %}{% continue %}{% endif -%}
                 {%- for value in filter.active_values -%}
                   <facet-remove>
                     <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
@@ -674,6 +679,7 @@
               <div class="filter-drawer-categories">
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}
+              {%- if filter.type == 'price_range' %}{% continue %}{% endif -%}
                   {% liquid
                     case filter.presentation
                       when 'swatch'
@@ -936,6 +942,7 @@
   {% if enable_filtering %}
   <div class="active-facets active-facets-mobile desktop-hide">
     {%- for filter in results.filters -%}
+              {%- if filter.type == 'price_range' %}{% continue %}{% endif -%}
       {%- for value in filter.active_values -%}
         <facet-remove>
           <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
@@ -1036,6 +1043,7 @@
       <form id="FacetFiltersPillsForm" class="facets__form">
         <div class="active-facets active-facets-desktop">
           {%- for filter in results.filters -%}
+              {%- if filter.type == 'price_range' %}{% continue %}{% endif -%}
             {%- for value in filter.active_values -%}
               <facet-remove>
                 <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">

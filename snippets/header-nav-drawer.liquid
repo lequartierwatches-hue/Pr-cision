@@ -252,16 +252,7 @@
     {% for link in section.settings.secondary_menu.links %}
       <li><a href="{{ link.url }}">{{ link.title }}</a></li>
     {% endfor %}
-    {% if shop.customer_accounts_enabled and section.settings.account_enable %}
-      <li><a href="{{ routes.account_url }}">{{ 'customer.account.title' | t }}</a></li>
-    {% endif %}
     </ul>
-  </div>
-  {% endif %}
-
-  {% if shop.customer_accounts_enabled and section.settings.account_enable and section.settings.secondary_menu.links == blank %}
-  <div class="nav-drawer--secondary-menu hdr-item-mobile-only sl-hide">
-    <a href="{{ routes.account_url }}">{{ 'customer.account.title' | t }}</a>
   </div>
   {% endif %}
 </nav>

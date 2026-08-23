@@ -844,7 +844,17 @@
   </div>
   <div class="header-nav-drawer-linklist drawer-menu-style-{{ section.settings.drawer_list_system }} drawer-menu-alignment-{{ section.settings.drawer_text_alignment }}{% if section.settings.header_drawer_list_borders %} header-nav-drawer-linklist--borders{% endif %} drawer-typography-category-style-{{ section.settings.category_heading_font_style }}">
   {% render 'header-nav-drawer' %}
-  <div class="mob-drawer--market-menu hdr-item-mobile-only sl-hide">
+
+  <div class="mob-drawer-bottom-panel sl-hide">
+
+  {% if shop.customer_accounts_enabled and section.settings.account_enable %}
+    <a href="{{ routes.account_url }}" class="mob-drawer-connexion-link">
+      {% render 'icon-account' %}
+      <span>{% if customer %}{{ 'customer.account.title' | t }}{% else %}Connexion{% endif %}</span>
+    </a>
+  {% endif %}
+
+  <div class="mob-drawer--market-menu hdr-item-mobile-only">
 
   {% if section.settings.enable_international and localization.available_countries.size > 1 %}
     {% # theme-check-disable %}
@@ -853,15 +863,15 @@
       <span class="mobile-localization-link">{{ localization.country.name }}{% if section.settings.show_currency %} <span class="drawer-market-selector-bullet">&bull;</span> {{ localization.country.currency.iso_code }} ({{ localization.country.currency.symbol }}){% endif %}</span>{% if section.settings.international_icon == 'arrow' %}{% render 'icon-caret' %}{% endif %}
     </button>
     {% # theme-check-enable %}
-  {% endif %} 
+  {% endif %}
 
   {% if localization.available_languages.size > 1 and language_selector_drawer %}
     <button id="langSelectorOpenerDrawer" class="header-drawer-language-selector" aria-label="{{ localization.language.endonym_name | capitalize }}">{{ 'localization.language_label' | t }}: {{ localization.language.endonym_name | capitalize }}{% if section.settings.international_icon == 'arrow' %}{% render 'icon-caret' %}{% endif %}</button>
-  {% endif %}    
-    
+  {% endif %}
+
   </div>
   {% if section.settings.social_show %}
-  <div class="mob-drawer-social-linklist social-list-style-{{ section.settings.social_ui }} social-list-align-{{ section.settings.social_alignment }} sl-hide"> 
+  <div class="mob-drawer-social-linklist social-list-style-{{ section.settings.social_ui }} social-list-align-{{ section.settings.social_alignment }}">
     {% if section.settings.social_heading != blank %}<span class="mob-drawer-social-linklist-heading">{{ section.settings.social_heading }}</span>{% endif %}
   {% if section.settings.social_ui == 'icon' or section.settings.social_ui == 'icon_with_outline' %}
   {% render 'social-channels-icon-list' %}
@@ -870,7 +880,9 @@
   {% endif %}
   </div>
   {% endif %}
-    
+
+  </div>
+
   </div>
 </div>
 <div id="drawBg" class="drawer-bg-pane"></div>

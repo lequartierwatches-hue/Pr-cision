@@ -438,4 +438,44 @@ a.krukstyle-cta:active {
   background: rgba(var(--color-foreground-rgb), 1);
 }
 
+/* ============================================================
+   MENU HAMBURGER (mobile/tablette): bloc du bas (connexion + reseaux
+   sociaux) dans un encadre distinct, colle au bas du tiroir.
+   ============================================================ */
+.mob-drawer-bottom-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(var(--color-foreground-rgb), 0.04);
+  border-top: 1px solid rgba(var(--color-foreground-rgb), 0.1);
+  padding: 20px var(--site-header-drawer-margin-mobile, 20px) 24px;
+}
+.mob-drawer-connexion-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none !important;
+  color: inherit;
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  margin-bottom: 18px;
+}
+.mob-drawer-connexion-link .icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.mob-drawer-bottom-panel .mob-drawer--market-menu {
+  margin-bottom: 16px;
+}
+.mob-drawer-bottom-panel .mob-drawer-social-linklist {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
 

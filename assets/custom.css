@@ -507,4 +507,23 @@ a.krukstyle-cta:active {
   color: #ffffff;
 }
 
+/* ============================================================
+   PAGE CATALOGUE: bouton filtre = icone seule, alignee a droite
+   (le compteur produits et le tri sont deja retires cote reglages)
+   ============================================================ */
+.facets-container-drawer {
+  justify-content: flex-end !important;
+}
+.facets-container-drawer .mobile-facets__wrapper {
+  display: flex !important;
+  justify-content: flex-end !important;
+  flex-grow: 0 !important;
+}
+.facets-container-drawer .mobile-facets__open-label {
+  display: none !important;
+}
+.facets-container-drawer .mobile-facets__open-wrapper {
+  padding: 8px 10px !important;
+}
+
 

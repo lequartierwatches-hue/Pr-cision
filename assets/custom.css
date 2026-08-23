@@ -570,8 +570,8 @@ a.krukstyle-cta:active {
 }
 /* Pastilles couleur du filtre: rondes et plus grandes, avec le nom dans la meme typo que le reste */
 .facets__visual-display-wrapper {
-  width: 46px !important;
-  height: 46px !important;
+  width: 92px !important;
+  height: 92px !important;
   align-items: center !important;
   justify-content: center !important;
 }

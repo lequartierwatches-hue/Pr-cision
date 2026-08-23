@@ -556,5 +556,28 @@ a.krukstyle-cta:active {
   padding-bottom: 6px;
   margin-bottom: 12px;
 }
+/* Bande "FILTRER": pleine largeur, plus fine (comme la reference) */
+.mobile-facets__header {
+  width: 100% !important;
+  margin-left: 0 !important;
+  height: 46px !important;
+}
+.mobile-facets__header-inner {
+  padding-left: 20px;
+}
+.mobile-facets-close-button {
+  margin-right: 16px;
+}
+/* Pastilles couleur du filtre: rondes, avec le nom dans la meme typo que le reste */
+.facets__visual-display-wrapper .swatch {
+  border-radius: 50% !important;
+}
+.mobile-facets__label .facet-checkbox__text {
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  font-size: 14px !important;
+}
 
 

@@ -400,6 +400,9 @@ a.krukstyle-cta:active {
 .shopping-info-slider {
   overflow: hidden;
 }
+.shopping-info-slider--active {
+  min-height: 190px;
+}
 .shopping-info-slider--active .multicolumn-grid {
   display: flex !important;
   flex-wrap: nowrap !important;

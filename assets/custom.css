@@ -403,9 +403,10 @@ a.krukstyle-cta:active {
 .shopping-info-slider--active .multicolumn-grid {
   display: flex !important;
   flex-wrap: nowrap !important;
-}
-.shopping-info-slider--active .multicolumn-grid {
   align-items: flex-start !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 .shopping-info-slider--active .multicolumn-grid-item {
   flex-shrink: 0;

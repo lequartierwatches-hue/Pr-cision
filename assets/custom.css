@@ -404,13 +404,11 @@ a.krukstyle-cta:active {
   display: flex !important;
   flex-wrap: nowrap !important;
 }
+.shopping-info-slider--active .multicolumn-grid {
+  align-items: flex-start !important;
+}
 .shopping-info-slider--active .multicolumn-grid-item {
   flex-shrink: 0;
-  animation: shopping-info-fade-in 0.4s ease;
-}
-@keyframes shopping-info-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 .shopping-info-slider--active .multicolumn-grid-item::after {
   content: none !important;

@@ -400,6 +400,12 @@ a.krukstyle-cta:active {
 .shopping-info-slider {
   overflow: hidden;
 }
+/* Hauteur de la case restauree a la taille d'origine (les 3 diapositives
+   restent identiques grace au correctif margin-bottom ci-dessous, celui-ci
+   ajoute juste l'espace qu'il y avait avant sur les 3 en meme temps). */
+.shopping-info-slider--active {
+  min-height: 190px;
+}
 .shopping-info-slider--active .multicolumn-grid {
   display: flex !important;
   flex-wrap: nowrap !important;

@@ -400,9 +400,6 @@ a.krukstyle-cta:active {
 .shopping-info-slider {
   overflow: hidden;
 }
-.shopping-info-slider--active {
-  min-height: 190px;
-}
 .shopping-info-slider--active .multicolumn-grid {
   display: flex !important;
   flex-wrap: nowrap !important;
@@ -414,6 +411,12 @@ a.krukstyle-cta:active {
 .shopping-info-slider--active .multicolumn-grid-item {
   flex-shrink: 0;
 }
+/* Le theme retire le margin-bottom du dernier item du DOM (:last-child),
+   qui est toujours "Paiement" quel que soit l'ordre visuel affiche par le
+   carrousel: ca reduisait l'espace juste sur cette diapositive precise. */
+.shopping-info-slider--active .multicolumn-grid-item:last-child {
+  margin-bottom: 25px !important;
+}
 .shopping-info-slider--active .multicolumn-grid-item::after {
   content: none !important;
 }
@@ -422,6 +425,7 @@ a.krukstyle-cta:active {
   justify-content: center;
   align-items: center;
   gap: 8px;
+  margin-top: 16px;
   padding-bottom: 20px;
 }
 .shopping-info-slider--active .shopping-info-dots {

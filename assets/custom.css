@@ -410,7 +410,7 @@ a.krukstyle-cta:active {
 }
 .shopping-info-slider--active .multicolumn-grid-item {
   flex-shrink: 0;
-  margin-bottom: 16px !important;
+  margin-bottom: 10px !important;
 }
 .shopping-info-slider--active .multicolumn-grid-item::after {
   content: none !important;
@@ -420,7 +420,7 @@ a.krukstyle-cta:active {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
 }
 .shopping-info-slider--active .shopping-info-dots {
   display: flex;

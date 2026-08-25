@@ -513,6 +513,7 @@ a.krukstyle-cta:active {
    ============================================================ */
 .facets-container-drawer {
   justify-content: flex-end !important;
+  margin-bottom: 0.5rem !important;
 }
 .facets-container-drawer .mobile-facets__wrapper {
   display: flex !important;

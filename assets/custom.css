@@ -535,6 +535,9 @@ a.krukstyle-cta:active {
 .facets-container-drawer .mobile-facets__open-wrapper {
   padding: 8px 10px !important;
 }
+.facets__form_border {
+  border-bottom: 0 !important;
+}
 
 /* Panneau du filtre: largeur reduite (style Kruk) + en-tete noir/blanc */
 @media only screen and (min-width: 750px) {

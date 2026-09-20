@@ -629,7 +629,7 @@ a.krukstyle-cta:active {
     font-size: 11px !important;
     letter-spacing: 1.5px !important;
   }
-  #shopify-section-featured_collection .product-card-quick-add {
+  .product-card-quick-add {
     display: none !important;
   }
 }

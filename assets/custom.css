@@ -625,6 +625,10 @@ a.krukstyle-cta:active {
     padding: 0 14px !important;
     font-size: 9px !important;
   }
+  .lx-template--index .banner__heading {
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+  }
 }
 
 

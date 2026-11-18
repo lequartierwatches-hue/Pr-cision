@@ -634,4 +634,12 @@ a.krukstyle-cta:active {
   }
 }
 
+/* ============================================================
+   TEMOIGNAGES: la case "Taille de l'image" plafonne a 140px dans
+   l'editeur, on force une taille plus grande ici.
+   ============================================================ */
+.testimonial-image {
+  width: 220px !important;
+}
+
 

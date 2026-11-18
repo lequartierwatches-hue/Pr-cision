@@ -55,9 +55,13 @@
 </div>
 {% endunless %}
 
-<div class="testimonials-container testimonials-layout-{{ section_display }}{% if section.settings.section_layout == 'slideshow' and section.blocks.size > 1 %} slideshow-items-{{ section.blocks.size }}{% endif %}">
+{% assign is_js_slideshow = false %}
+{% if section.settings.section_layout == 'slideshow' and section.blocks.size > 1 %}
+  {% assign is_js_slideshow = true %}
+{% endif %}
+<div class="testimonials-container testimonials-layout-{{ section_display }}{% if is_js_slideshow %} slideshow-items-{{ section.blocks.size }}{% endif %}"{% if is_js_slideshow %} data-testimonial-slider data-count="{{ section.blocks.size }}"{% endif %}>
 {% for block in section.blocks %}
-<div class="testimonial" {{ block.shopify_attributes }}>
+<div class="testimonial"{% if is_js_slideshow %} data-testimonial-item{% endif %} {{ block.shopify_attributes }}>
 {% if section.settings.show_ratings %}
 <div class="testimonial-star-rating">
 {% if block.settings.star_rating == 1 %}
@@ -100,12 +104,120 @@
 {% endfor %}
 </div>
 
-{% if section.settings.section_layout == 'slideshow' and section.blocks.size > 1 %}
+{% if is_js_slideshow %}
 <div class="testimonial-pagination ft-pagination-style--{{ settings.media_pagination_style }} slideshow-items-{{ section.blocks.size }}">
   {% for block in section.blocks %}
-  <div class="testimonial-pagination-marker"></div>
+  <button type="button" class="testimonial-pagination-marker" data-testimonial-dot aria-label="Avis {{ forloop.index }}"></button>
   {% endfor %}
 </div>
+<div class="testimonial-controls" data-testimonial-controls>
+  <button type="button" class="testimonial-control testimonial-control-prev" data-testimonial-prev aria-label="Avis precedent">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button type="button" class="testimonial-control testimonial-control-playpause" data-testimonial-playpause aria-label="Mettre en pause le defilement" aria-pressed="false">
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+  </button>
+  <button type="button" class="testimonial-control testimonial-control-next" data-testimonial-next aria-label="Avis suivant">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+</div>
+<script>
+(function () {
+  function initTestimonialSlider(root) {
+    var items = Array.prototype.slice.call(root.querySelectorAll('[data-testimonial-item]'));
+    var dots = Array.prototype.slice.call(root.parentElement.querySelectorAll('[data-testimonial-dot]'));
+    var controls = root.parentElement.querySelector('[data-testimonial-controls]');
+    var prevBtn = controls ? controls.querySelector('[data-testimonial-prev]') : null;
+    var nextBtn = controls ? controls.querySelector('[data-testimonial-next]') : null;
+    var playPauseBtn = controls ? controls.querySelector('[data-testimonial-playpause]') : null;
+    var count = items.length;
+    var index = 0;
+    var timer = null;
+    var playing = true;
+    var intervalMs = 4000;
+
+    function render() {
+      items.forEach(function (el, i) {
+        el.classList.toggle('active', i === index);
+      });
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === index);
+      });
+    }
+
+    function goTo(i) {
+      index = ((i % count) + count) % count;
+      render();
+    }
+
+    function next() {
+      goTo(index + 1);
+    }
+
+    function prev() {
+      goTo(index - 1);
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      timer = setInterval(next, intervalMs);
+    }
+
+    function stopAutoplay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function setPlaying(value) {
+      playing = value;
+      if (playPauseBtn) {
+        playPauseBtn.classList.toggle('is-paused', !playing);
+        playPauseBtn.setAttribute('aria-pressed', String(!playing));
+        playPauseBtn.setAttribute('aria-label', playing ? 'Mettre en pause le defilement' : 'Relancer le defilement');
+      }
+      if (playing) {
+        startAutoplay();
+      } else {
+        stopAutoplay();
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        prev();
+        if (playing) startAutoplay();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        next();
+        if (playing) startAutoplay();
+      });
+    }
+    if (playPauseBtn) {
+      playPauseBtn.addEventListener('click', function () {
+        setPlaying(!playing);
+      });
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        goTo(i);
+        if (playing) startAutoplay();
+      });
+    });
+
+    render();
+    setPlaying(true);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-testimonial-slider]').forEach(initTestimonialSlider);
+  });
+})();
+</script>
 {% endif %}
 
 {% if section.settings.btn_enable %}

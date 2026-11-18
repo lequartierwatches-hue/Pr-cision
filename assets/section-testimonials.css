@@ -240,6 +240,82 @@
   animation-delay: 12s;
 }
 
+/* ============================================================
+   DIAPORAMA PILOTE PAR JS: remplace les animations CSS automatiques
+   ci-dessus par une classe .active (ajoutee en JS), pour permettre
+   pause/lecture et navigation manuelle avant/arriere.
+   ============================================================ */
+.testimonials-layout-slideshow .testimonial {
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.testimonials-layout-slideshow .testimonial.active {
+  opacity: 1;
+}
+
+.testimonial-pagination-marker {
+  animation: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+}
+
+.testimonial-pagination-marker.active {
+  opacity: 1;
+  background: var(--pagination-fill);
+}
+
+.ft-pagination-style--bullets .testimonial-pagination-marker.active {
+  background: var(--pagination-fill);
+  border: 1px solid var(--pagination-fill);
+}
+
+.testimonial-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
+
+.testimonial-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(var(--color-foreground-rgb), 0.2);
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(var(--color-foreground-rgb));
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.testimonial-control:hover {
+  background: rgb(var(--color-foreground-rgb));
+  border-color: rgb(var(--color-foreground-rgb));
+  color: rgb(var(--color-background-rgb));
+}
+
+.testimonial-control-playpause .icon-play {
+  display: none;
+}
+
+.testimonial-control-playpause.is-paused .icon-pause {
+  display: none;
+}
+
+.testimonial-control-playpause.is-paused .icon-play {
+  display: block;
+}
+
 
 @keyframes testfade {
   0%, 5% {
